@@ -4,73 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital-clock</title>
-    <style>
-      body {
-        background-color: rgb(37, 30, 30);
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .clock {
-        background: rgba(0, 0, 0, 0.557);
-        color: rgb(255, 0, 0);
-        font-size: 70px;
-        font-family:serif;
-        letter-spacing: 7px;
-        border: 10px solid rgb(255, 29, 29);
-        box-shadow: 0px 0px 10px rgb(255, 0, 0);
-        padding: 10px;
-        width: 90%;
-        text-align: center;
-        position: relative;
-      }
-      .clock::after{
-        content:'';
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        background-color: rgb(255, 0, 0);
-        filter: blur(50px);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="MyClock" class="clock" onload="showTime()" ></div>
 
-    <script>
-      function showTime() {
-        var date = new Date();
-        var h = date.getHours(); // 0 - 23
-        var m = date.getMinutes(); // 0 - 59
-        var s = date.getSeconds(); // 0 - 59
-        var session = "AM";
-
-        if (h == 0) {
-          h = 12;
-        }
-
-        if (h > 12) {
-          h = h - 12;
-          session = "PM";
-        }
-
-        h = h < 10 ? "0" + h : h;
-        m = m < 10 ? "0" + m : m;
-        s = s < 10 ? "0" + s : s;
-
-        var time = h + "H :" + m + "M :" + s + "S" + " " + session;
-        document.getElementById("MyClock").innerText = time;
-        // document.getElementById("MyClock").textContent = time;
-
-        setTimeout(showTime, 1000);
-      }
-
-      showTime();
+    <script src="script.js">
+      
     </script>
   </body>
 </html>
